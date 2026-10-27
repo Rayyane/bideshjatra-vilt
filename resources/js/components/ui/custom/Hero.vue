@@ -1,37 +1,46 @@
 <script setup lang="ts">
+import FlightSearchForm from '@/components/ui/custom/FlightSearchForm.vue';
+
 const heroBgUrl = '/pexels-bydresla-18197918.jpg'
 const heroImgUrl = '/alex-quezada-e1zjPaFFTDY-unsplash.jpg'
+const openContactModal = () => window.dispatchEvent(new Event('open-contact-modal'));
 </script>
 
 <template>
-    <section id="home" class="hero flex min-h-[680px] items-center bg-cover bg-center px-5 pb-16 pt-28 sm:px-8 md:min-h-screen md:px-10" :style="{
+    <section id="home" class="hero flex items-start bg-cover bg-center px-5 pb-10 pt-24 sm:px-8 sm:pt-28 md:px-10 lg:min-h-screen lg:items-center lg:px-0 lg:pb-16" :style="{
         backgroundImage: `linear-gradient(to bottom, rgba(19, 104, 124, 0.9), rgba(252, 150, 39, 0.9)), url('${heroBgUrl}')`
     }">
-        <div class="container mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-2">
+        <div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-1 lg:grid-cols-2 lg:px-8">
 
-            <div class="flex flex-col justify-center space-y-6 text-center md:text-left">
-                <h1 class="text-4xl font-extrabold tracking-wide text-gray-300 sm:text-5xl lg:text-6xl font-montserrat">
-                    <span class="text-brand-secondary">Your Gateway</span> <br> <span
-                        class="text-shadow-brand text-shadow-lg">to the World</span>
+            <div class="flex flex-col justify-center space-y-4 text-center lg:-mt-28 lg:space-y-6 lg:text-left">
+                <h1 class="font-montserrat text-3xl font-extrabold tracking-wide text-gray-300 sm:text-4xl lg:text-6xl">
+                    <span class="text-brand-secondary">
+                        Your Gateway
+                    </span>
+                    <span class="text-shadow-brand text-shadow-lg">
+                        to the World
+                    </span>
                 </h1>
-                <p class="text-xl text-gray-100 text-shadow-md/20 text-shadow-brand-secondary max-w-md mx-auto md:mx-0">
+                <p class="mx-auto hidden text-xl text-gray-100 text-shadow-md/20 text-shadow-brand-secondary lg:block lg:mx-0">
                     Explore new destinations, secure your visa, and travel with confidence through expert guidance from
                     Bidesh Jatra.
                 </p>
-                <div class="flex items-center justify-center gap-4 md:justify-start">
+                <div class="flex items-center justify-center gap-3 lg:justify-start lg:gap-4">
                     <button
-                        class="rounded-lg bg-brand-secondary border border-brand-secondary px-6 py-3 font-medium text-white hover:bg-transparent transition">
+                        class="rounded-lg border border-brand-secondary bg-brand-secondary px-4 py-2.5 text-sm font-medium text-white transition hover:bg-transparent sm:px-6 sm:py-3 sm:text-base"
+                        @click="openContactModal">
                         Get Started
                     </button>
-                    <button
-                        class="rounded-lg border border-brand px-6 py-3 font-medium text-gray-300 hover:bg-brand hover:text-white transition">
+                    <a href="#highlights"
+                        class="rounded-lg border border-brand px-4 py-2.5 text-sm font-medium text-gray-300 transition hover:bg-brand hover:text-white sm:px-6 sm:py-3 sm:text-base">
                         Learn More
-                    </button>
+                    </a>
                 </div>
+                <FlightSearchForm class="mt-3 w-full lg:hidden" title-id="mobile-flight-search-title" />
             </div>
 
-            <div class="hidden md:flex items-center justify-center md:justify-end">
-                <div class="relative w-4/5 max-w-sm md:w-full md:max-w-md lg:max-w-lg">
+            <div class="hidden items-center justify-center lg:flex lg:justify-end lg:-mt-28">
+                <div class="relative w-3/6">
 
                     <img :src="heroImgUrl" alt="Hero Image"
                         class="hero-image-dissolve aspect-[4/5] w-full object-cover" />
